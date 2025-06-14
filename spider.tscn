@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0362wbri17et"]
+
+[ext_resource type="PackedScene" uid="uid://c80fri21sa32a" path="res://asset/Spider.fbx" id="1_5irq3"]
+[ext_resource type="Script" path="res://spider.gd" id="2_idtn1"]
+[ext_resource type="PackedScene" uid="uid://crw6058uj66ek" path="res://asset/health_bar_3d.tscn" id="3_8tvlt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y5l1u"]
+size = Vector3(2.52551, 2.04004, 2.93195)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1awqr"]
+radius = 7.32494
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qbsem"]
+size = Vector3(1.44409, 1, 1.90125)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_uenbt"]
+properties/0/path = NodePath(".:global_position")
+properties/0/spawn = true
+properties/0/replication_mode = 2
+properties/1/path = NodePath(".:hitpoint")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+
+[node name="Spider" groups=["spider"] instance=ExtResource("1_5irq3")]
+script = ExtResource("2_idtn1")
+
+[node name="Skeleton3D" parent="Spider_Armature" index="0"]
+transform = Transform3D(-0.06, 5.24537e-09, 0, -5.24537e-09, -0.06, -4.44089e-16, -1.58819e-22, -4.44089e-16, 0.06, 0, 0, -0.001)
+bones/0/rotation = Quaternion(1, 0, 7.54979e-08, -1.59873e-29)
+bones/1/position = Vector3(0.0414447, 0.00492479, -0.00694036)
+bones/1/rotation = Quaternion(-2.3842e-07, -1.26929e-11, 1, 5.82047e-17)
+bones/1/scale = Vector3(2.21266, 2.21266, 2.21267)
+bones/3/rotation = Quaternion(-2.68816e-08, -3.17865e-08, -3.20453e-15, 1)
+bones/4/rotation = Quaternion(-2.17597e-15, 1, 5.21973e-08, -1.33158e-07)
+bones/5/rotation = Quaternion(-7.35823e-15, 1, 4.68654e-08, 1.33158e-07)
+bones/7/rotation = Quaternion(-0.542003, 0.81988, -0.151829, 0.104774)
+bones/8/rotation = Quaternion(0.252493, 0.132082, 0.0280149, 0.958132)
+bones/11/rotation = Quaternion(0.733261, -0.647131, 0.194543, -0.075518)
+bones/12/rotation = Quaternion(0.230136, 0.242479, 0.107586, 0.936305)
+bones/13/rotation = Quaternion(-0.0111154, 0.00922748, -0.00150462, 0.999895)
+bones/15/rotation = Quaternion(0.8776, -0.382072, 0.276419, -0.0862087)
+bones/16/rotation = Quaternion(0.169648, 0.369183, 0.189095, 0.893961)
+bones/19/rotation = Quaternion(0.542004, 0.81988, -0.151828, -0.104774)
+bones/20/rotation = Quaternion(0.252493, -0.132081, -0.0280149, 0.958132)
+bones/23/rotation = Quaternion(0.733261, 0.647131, -0.194543, -0.0755177)
+bones/24/rotation = Quaternion(0.230136, -0.242479, -0.107586, 0.936305)
+bones/25/rotation = Quaternion(-0.0111155, -0.0092273, 0.00150467, 0.999895)
+bones/27/rotation = Quaternion(0.8776, 0.382073, -0.276419, -0.0862087)
+bones/28/rotation = Quaternion(0.169648, -0.369183, -0.189096, 0.893961)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Spider_Armature|IdleSpider"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0542603, 0.52002, -0.201019)
+shape = SubResource("BoxShape3D_y5l1u")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="3"]
+avoidance_enabled = true
+height = 0.01
+radius = 2.0
+neighbor_distance = 1.0
+
+[node name="Area3D" type="Area3D" parent="." index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("CylinderShape3D_1awqr")
+
+[node name="Timer" type="Timer" parent="." index="5"]
+
+[node name="hittimer" type="Timer" parent="." index="6"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Marker3D" type="Marker3D" parent="." index="7"]
+
+[node name="Marker3D" type="Marker3D" parent="Marker3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0324264, 1.70565)
+
+[node name="attackArea3D" type="Area3D" parent="Marker3D/Marker3D" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marker3D/Marker3D/attackArea3D" index="0"]
+transform = Transform3D(-0.999775, 0, -0.0212216, 0, 1, 0, 0.0212216, 0, -0.999775, 0.0333257, -0.0310946, -4.18078)
+shape = SubResource("BoxShape3D_qbsem")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="8"]
+replication_config = SubResource("SceneReplicationConfig_uenbt")
+
+[node name="HealthBar3D" parent="." index="9" instance=ExtResource("3_8tvlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0442938, 2.63147, -0.0385509)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="Marker3D/Marker3D/attackArea3D" to="." method="_on_attack_area_3d_body_entered"]
+[connection signal="body_exited" from="Marker3D/Marker3D/attackArea3D" to="." method="_on_attack_area_3d_body_exited"]

@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://bb6dtv2rfcaf4"]
+
+[ext_resource type="PackedScene" uid="uid://bam1va23satkl" path="res://asset/Chameleon.glb" id="1_ii3i7"]
+[ext_resource type="Script" path="res://insect.gd" id="2_rm4nq"]
+[ext_resource type="Texture2D" uid="uid://dmotmk62gqewx" path="res://asset/Chameleon_0.jpg" id="3_ummr0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eoq3g"]
+albedo_texture = ExtResource("3_ummr0")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ljyvi"]
+height = 1.4405
+radius = 4.97901
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xdidv"]
+size = Vector3(0.776784, 1.92358, 3.96507)
+
+[node name="Chameleon" groups=["insects"] instance=ExtResource("1_ii3i7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.758507, -0.0249634)
+script = ExtResource("2_rm4nq")
+
+[node name="Node" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0332642, 0.00012207)
+
+[node name="Mesh" parent="Node" index="0"]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -0.0237479, -0.47348, 0.00633166)
+surface_material_override/0 = SubResource("StandardMaterial3D_eoq3g")
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750123, -0.0838013)
+shape = SubResource("CylinderShape3D_ljyvi")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0149712, 0.737732, -0.157067)
+shape = SubResource("BoxShape3D_xdidv")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

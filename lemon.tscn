@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw4r3jl8sf646"]
+
+[ext_resource type="PackedScene" uid="uid://ca0b60mpty8pk" path="res://asset/Lemon.fbx" id="1_dvuwh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u6d4r"]
+size = Vector3(1.38462, 1, 1.38587)
+
+[node name="Lemon" groups=["plant"] instance=ExtResource("1_dvuwh")]
+
+[node name="Lemon" parent="." index="0"]
+transform = Transform3D(-1.96701e-06, -45, -1.96701e-06, 0, -1.96701e-06, 45, -45, 1.96701e-06, 8.59808e-14, 0, 0.489563, -0.0386658)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0137462, 0.588806, -0.0342417)
+shape = SubResource("BoxShape3D_u6d4r")

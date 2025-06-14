@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmwcuwej0hob2"]
+
+[ext_resource type="PackedScene" uid="uid://expqygqf6pst" path="res://asset/trophy.fbx" id="1_4nxed"]
+[ext_resource type="Script" path="res://reward.gd" id="1_37h7g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_humht"]
+size = Vector3(2.11998, 3.49622, 1)
+
+[node name="reward" instance=ExtResource("1_4nxed")]
+script = ExtResource("1_37h7g")
+
+[node name="Wine01" parent="." index="0"]
+transform = Transform3D(40, 0, 0, 0, -1.74846e-06, 40, 0, -40, -1.74846e-06, 0, 1.08044, 0.00970459)
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0798111, -0.294861, 0)
+shape = SubResource("BoxShape3D_humht")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

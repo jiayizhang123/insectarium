@@ -1,0 +1,91 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyxvwnjcqs5i7"]
+
+[ext_resource type="Texture2D" uid="uid://c1ln17j48i04i" path="res://asset/itemlist.png" id="1_lf7ra"]
+
+[node name="itemlist" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 260.0
+offset_bottom = 119.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(127.633, 60.6081)
+scale = Vector2(0.306731, 0.415601)
+texture = ExtResource("1_lf7ra")
+
+[node name="beetle" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 18.0
+offset_right = 110.0
+offset_bottom = 43.0
+theme_override_colors/default_color = Color(0, 0.0156863, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Beetle: 0"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="chameleon" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 45.0
+offset_right = 141.0
+offset_bottom = 69.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Chameleon: 0"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="treefrog" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 70.0
+offset_right = 115.0
+offset_bottom = 100.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Treefrog: 0"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="pumpkin" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 69.0
+offset_right = 244.0
+offset_bottom = 98.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Pumpkin: 0"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="strawberry" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 18.0
+offset_right = 253.0
+offset_bottom = 43.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Strawberry: 0"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="lemon" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 43.0
+offset_right = 246.0
+offset_bottom = 73.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Lemon: 0"
+scroll_active = false

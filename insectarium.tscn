@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh58jk265kdqy"]
+
+[ext_resource type="PackedScene" uid="uid://b4lrchpu2bxp6" path="res://asset/castle.gltf.glb" id="1_btef8"]
+[ext_resource type="Script" path="res://insectarium.gd" id="1_n7jsj"]
+[ext_resource type="PackedScene" uid="uid://dkf8l1e16qiip" path="res://asset/Entomica.fbx" id="3_l8lph"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xo6dg"]
+radius = 6.14303
+
+[node name="insectarium" instance=ExtResource("1_btef8")]
+script = ExtResource("1_n7jsj")
+
+[node name="castle" parent="." index="0"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.669678, 0.0188904)
+shape = SubResource("CylinderShape3D_xo6dg")
+
+[node name="Entomica" parent="." index="2" instance=ExtResource("3_l8lph")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0.00255518, 0, -0.00255518, 1.2, -0.0614929, 2.64259, 2.76708)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxfmdjc8s1kvj"]
+
+[ext_resource type="Script" path="res://info.gd" id="1_5wt0x"]
+[ext_resource type="Texture2D" uid="uid://coyvf4dwts66c" path="res://asset/bar.png" id="2_7skix"]
+
+[node name="info" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 649.0
+offset_bottom = 143.0
+script = ExtResource("1_5wt0x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320.5, 72.5)
+scale = Vector2(0.642137, 1.33654)
+texture = ExtResource("2_7skix")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 24.0
+offset_right = 623.0
+offset_bottom = 108.0
+bbcode_enabled = true
+scroll_following = true

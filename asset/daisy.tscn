@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfsv6jc8oe8kj"]
+
+[ext_resource type="PackedScene" uid="uid://dgr1xgkubh2xp" path="res://asset/Daisy.fbx" id="1_p63l0"]
+
+[node name="Daisy" instance=ExtResource("1_p63l0")]

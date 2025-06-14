@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpqlhqyadbpvs"]
+
+[ext_resource type="Script" path="res://ServerInfo.gd" id="1_7sw04"]
+[ext_resource type="Texture2D" uid="uid://1v3j580sw4pk" path="res://asset/ArrowRight.png" id="2_xmoya"]
+
+[node name="ServerInfo" type="HBoxContainer"]
+offset_right = 263.0
+offset_bottom = 36.0
+theme_override_constants/separation = 10
+script = ExtResource("1_7sw04")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Server name"
+mouse_filter = 1
+theme_override_font_sizes/font_size = 20
+text = "server"
+vertical_alignment = 1
+
+[node name="Ip" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Server IP"
+mouse_filter = 1
+theme_override_font_sizes/font_size = 20
+text = "192.168.0.12"
+vertical_alignment = 1
+
+[node name="PlayerCount" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Player count"
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.960784, 0.0588235, 0.956863, 1)
+theme_override_font_sizes/font_size = 20
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+theme_override_icons/icon = ExtResource("2_xmoya")
+text = "Join"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

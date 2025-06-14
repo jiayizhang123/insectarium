@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://df87ctvikwd0j"]
+
+[ext_resource type="PackedScene" uid="uid://cj4gy8ik85pno" path="res://asset/the_beetle_from_gorilla_tag.glb" id="1_45tih"]
+[ext_resource type="Script" path="res://insect.gd" id="2_nobrn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pj17m"]
+size = Vector3(1.29022, 1.4552, 1.19574)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dcnnk"]
+height = 1.43076
+radius = 4.82897
+
+[node name="the_beetle_from_gorilla_tag" groups=["insects"] instance=ExtResource("1_45tih")]
+script = ExtResource("2_nobrn")
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(-4.33013, -2.5, -1.09278e-07, 0, -2.18557e-07, 5, -2.5, 4.33013, 1.89276e-07, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00466919, 0.2276, -0.009552)
+shape = SubResource("BoxShape3D_pj17m")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="2"]
+
+[node name="Area3D" type="Area3D" parent="." index="3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.489136, 0.0287781)
+shape = SubResource("CylinderShape3D_dcnnk")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://rutsmocobiw5"]
+
+[ext_resource type="PackedScene" uid="uid://c5vo2wral3iy0" path="res://asset/Pumpkin01.fbx" id="1_xsj7r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fo0cr"]
+size = Vector3(1.86377, 1.5304, 2.08649)
+
+[node name="Pumpkin01" groups=["plant"] instance=ExtResource("1_xsj7r")]
+
+[node name="Pumpkin01" parent="." index="0"]
+transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14624, 0.734802, 0.0174255)
+shape = SubResource("BoxShape3D_fo0cr")

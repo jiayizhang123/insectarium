@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbrkkxrsk1e34"]
+
+[ext_resource type="PackedScene" uid="uid://brr7ij4kaqv61" path="res://asset/Strawberry.fbx" id="1_y1wuk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rrevs"]
+size = Vector3(1.09204, 1.24585, 1.23337)
+
+[node name="Strawberry" groups=["plant"] instance=ExtResource("1_y1wuk")]
+
+[node name="Strawberry" parent="." index="0"]
+transform = Transform3D(50, 0, 0, 0, -2.18557e-06, 50, 0, -50, -2.18557e-06, 0, 0.865936, 0.0330009)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009, 0.836792, -0.01)
+shape = SubResource("BoxShape3D_rrevs")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://buwiwguekmelo"]
+
+[ext_resource type="PackedScene" uid="uid://dbtfwgq5yl8iy" path="res://asset/green_tree_frog.glb" id="1_756eu"]
+[ext_resource type="Script" path="res://insect.gd" id="2_ma7uj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_46x88"]
+size = Vector3(1.44903, 0.827454, 0.804688)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_umcjl"]
+height = 1.46291
+radius = 3.96851
+
+[node name="green_tree_frog" groups=["insects"] instance=ExtResource("1_756eu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0.009)
+script = ExtResource("2_ma7uj")
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(-6.55671e-08, 1.5, 6.55671e-08, 0, -6.55671e-08, 1.5, 1.5, 6.55671e-08, 2.86603e-15, 0, 0.452583, -0.0108573)
+
+[node name="Object_2" parent="Sketchfab_model/model_660331953235_obj_cleaner_materialmerger_gles" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021, 0.55)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00806618, 0.705315, -0.0743714)
+shape = SubResource("BoxShape3D_46x88")
+
+[node name="Area3D" type="Area3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.279968, -0.0820618)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0227317, 0.56488, -0.0249081)
+shape = SubResource("CylinderShape3D_umcjl")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

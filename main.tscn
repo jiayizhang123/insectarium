@@ -1,0 +1,199 @@
+[gd_scene load_steps=9 format=3 uid="uid://bnvw1xqjbw1jd"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_uxf8q"]
+[ext_resource type="Texture2D" uid="uid://djc7xr4abqidw" path="res://asset/71kEDGYUcsL._AC_SL1500_.jpg" id="2_3d7gh"]
+[ext_resource type="Script" path="res://serverbrowser.gd" id="3_ay0t5"]
+[ext_resource type="PackedScene" uid="uid://bb8dpor5j1266" path="res://help.tscn" id="4_woixc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hbt2b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tk17t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d4sfv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mhrvn"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_right = 1153.0
+offset_bottom = 648.0
+script = ExtResource("1_uxf8q")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.003
+anchor_top = 0.002
+anchor_right = -0.003
+anchor_bottom = 0.002
+offset_left = -0.544
+offset_top = -0.296
+offset_right = 1151.46
+offset_bottom = 647.704
+texture = ExtResource("2_3d7gh")
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.152
+anchor_top = -0.287
+anchor_right = -0.152
+anchor_bottom = -0.287
+offset_left = 356.104
+offset_top = 227.976
+offset_right = 1154.1
+offset_bottom = 343.976
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[rainbow freq=0.5 sat=0.8 val=0.8]Entomica's Research[/rainbow]"
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.152
+anchor_top = -0.287
+anchor_right = -0.152
+anchor_bottom = -0.287
+offset_left = 678.104
+offset_top = 761.976
+offset_right = 839.104
+offset_bottom = 821.976
+bbcode_enabled = true
+text = "[i] [b]  By Kratos team
+Algoma University"
+fit_content = true
+scroll_active = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 345.0
+offset_right = 688.0
+offset_bottom = 415.0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hbt2b")
+text = "Start"
+
+[node name="Help" type="Button" parent="."]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 419.0
+offset_right = 737.0
+offset_bottom = 492.0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tk17t")
+text = "Help"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 414.0
+offset_top = 492.0
+offset_right = 736.0
+offset_bottom = 563.0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d4sfv")
+text = "Quit"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 246.0
+offset_right = 1081.0
+offset_bottom = 335.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 24.0
+offset_right = 572.0
+offset_bottom = 75.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 21.0
+offset_right = 129.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 30
+text = "Server:"
+
+[node name="CheckButton" type="CheckButton" parent="Panel"]
+layout_mode = 0
+offset_left = 691.0
+offset_top = 17.0
+offset_right = 778.0
+offset_bottom = 48.0
+scale = Vector2(2, 2)
+text = "OFF"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 531.0
+offset_top = 161.0
+offset_right = 705.0
+offset_bottom = 224.0
+theme_override_colors/font_color = Color(0.470588, 0.482353, 0.470588, 0.843137)
+theme_override_font_sizes/font_size = 40
+text = "gamer"
+max_length = 7
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 377.0
+offset_top = 166.0
+offset_right = 504.0
+offset_bottom = 221.0
+theme_override_font_sizes/font_size = 40
+text = "Name:"
+
+[node name="serverbrowser" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_ay0t5")
+
+[node name="broadcasttimer" type="Timer" parent="serverbrowser"]
+
+[node name="Timer" type="Timer" parent="serverbrowser"]
+wait_time = 2.0
+one_shot = true
+
+[node name="ItemList" type="ItemList" parent="."]
+modulate = Color(1, 1, 1, 0.972549)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 526.0
+offset_right = 287.0
+offset_bottom = 643.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mhrvn")
+auto_height = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 869.0
+offset_top = 563.0
+offset_right = 1126.0
+offset_bottom = 631.0
+
+[node name="help" parent="." instance=ExtResource("4_woixc")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="toggled" from="Panel/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="timeout" from="serverbrowser/broadcasttimer" to="serverbrowser" method="_on_broadcasttimer_timeout"]
+[connection signal="timeout" from="serverbrowser/Timer" to="serverbrowser" method="_on_timer_timeout"]

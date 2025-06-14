@@ -1,0 +1,137 @@
+[gd_scene load_steps=9 format=3 uid="uid://bb8dpor5j1266"]
+
+[ext_resource type="Texture2D" uid="uid://cmgmq6i101fyu" path="res://asset/Back.png" id="1_iw2ek"]
+[ext_resource type="Script" path="res://help.gd" id="1_whke8"]
+[ext_resource type="Texture2D" uid="uid://r0fx4d3ytn1d" path="res://asset/NameBack.png" id="2_hlfkf"]
+[ext_resource type="Texture2D" uid="uid://dbfxj6i6tw5vj" path="res://asset/Dummy.png" id="3_cperw"]
+[ext_resource type="Texture2D" uid="uid://cyry1j08vvvyr" path="res://asset/Hover.png" id="4_5rgqh"]
+[ext_resource type="Texture2D" uid="uid://b8eanug3qjs8q" path="res://asset/Default.png" id="4_ggd7r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qg31i"]
+texture = ExtResource("4_5rgqh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jh21s"]
+texture = ExtResource("4_ggd7r")
+
+[node name="help" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_whke8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.129412, 0.341176, 0.12549, 0.976471)
+
+[node name="Back" type="Sprite2D" parent="."]
+position = Vector2(555.25, 81.25)
+scale = Vector2(0.879095, 0.569264)
+texture = ExtResource("1_iw2ek")
+
+[node name="NameBack" type="Sprite2D" parent="."]
+position = Vector2(579.453, 349.594)
+scale = Vector2(2.58018, 3.12633)
+texture = ExtResource("2_hlfkf")
+
+[node name="Dummy" type="Sprite2D" parent="."]
+position = Vector2(136, 197)
+texture = ExtResource("3_cperw")
+
+[node name="Dummy2" type="Sprite2D" parent="."]
+position = Vector2(135, 253)
+texture = ExtResource("3_cperw")
+
+[node name="Dummy3" type="Sprite2D" parent="."]
+position = Vector2(137, 307)
+texture = ExtResource("3_cperw")
+
+[node name="Dummy4" type="Sprite2D" parent="."]
+position = Vector2(133, 471)
+texture = ExtResource("3_cperw")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 379.0
+offset_top = 34.0
+offset_right = 735.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 50
+text = "HELP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 185.0
+offset_right = 1026.0
+offset_bottom = 523.0
+theme_override_font_sizes/normal_font_size = 20
+text = " Input your name.
+
+For single player, switch on server, then play.
+
+ For multiplayer, players should access to same LAN, such as under single WIFI AP, or one of your device's system(windows or Android phone) switch on hotspot of Wifi function, let rest of you access this hotspot. Then one of you switch on server, and up to 4 other players can join the server when their games connect the server. After all of players join the game, anyone of players could click the play button to start the game.
+
+Playing control: click on left button of mouse(windows) or touch the screen(Android) to let protagonist move, double click or double touch to let protagonist attack.
+"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 178.0
+offset_right = 153.0
+offset_bottom = 213.0
+theme_override_colors/font_color = Color(0.113725, 0.490196, 0.113725, 1)
+theme_override_font_sizes/font_size = 25
+text = "1"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 232.0
+offset_right = 152.0
+offset_bottom = 267.0
+theme_override_colors/font_color = Color(0.113725, 0.490196, 0.113725, 1)
+theme_override_font_sizes/font_size = 25
+text = "2"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 289.0
+offset_right = 152.0
+offset_bottom = 324.0
+theme_override_colors/font_color = Color(0.113725, 0.490196, 0.113725, 1)
+theme_override_font_sizes/font_size = 25
+text = "3"
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 454.0
+offset_right = 150.0
+offset_bottom = 489.0
+theme_override_colors/font_color = Color(0.113725, 0.490196, 0.113725, 1)
+theme_override_font_sizes/font_size = 25
+text = "4"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 577.0
+offset_right = 625.0
+offset_bottom = 639.0
+theme_override_colors/font_hover_color = Color(0, 0.623529, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxTexture_qg31i")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jh21s")
+text = "BACK"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
